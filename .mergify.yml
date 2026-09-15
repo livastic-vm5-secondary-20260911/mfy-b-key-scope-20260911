@@ -1,0 +1,7 @@
+pull_request_rules:
+  - name: VM5 engine probe
+    conditions:
+      - title = VM5_MFY_ENGINE_PROBE_20260915
+    actions:
+      comment:
+        message: vm5-engine-probe-20260915

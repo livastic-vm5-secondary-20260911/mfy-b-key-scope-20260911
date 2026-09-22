@@ -1,0 +1,9 @@
+pull_request_rules:
+  - name: VM5 WA post-success head freshness discriminator
+    conditions:
+      - title = VM5_WA_POST_SUCCESS_HEAD_RACE_260922
+      - base = main
+      - check-success = vm5-wa-postsuccess-gate
+    actions:
+      merge:
+        method: squash

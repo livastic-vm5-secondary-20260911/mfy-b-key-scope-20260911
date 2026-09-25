@@ -1,0 +1,12 @@
+queue_rules:
+  - name: vm5-native-stack
+    queue_conditions:
+      - title = VM5_NATIVE_STACK_CHILD_PASS_20260926
+    merge_conditions:
+      - check-success = vm5-native-stack-never
+    merge_method: merge
+    batch_size: 1
+    max_checks_retries: 0
+
+merge_queue:
+  max_parallel_checks: 1

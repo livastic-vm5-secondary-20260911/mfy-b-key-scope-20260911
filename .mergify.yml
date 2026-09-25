@@ -1,0 +1,7 @@
+pull_request_rules:
+  - name: VM5 original shared source freshness secondary
+    conditions:
+      - title = VM5_SHARED_REBIND_SECONDARY_20260926
+    actions:
+      comment:
+        message: VM5_SHARED_ORIGINAL_SECONDARY_20260926

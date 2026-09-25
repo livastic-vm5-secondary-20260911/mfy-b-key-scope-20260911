@@ -1,0 +1,10 @@
+name: VM5 Deployment App Pin Probe
+on:
+  workflow_dispatch:
+jobs:
+  deploy:
+    name: VM5_DEPLOYMENT_APP_PIN_PROBE
+    runs-on: ubuntu-latest
+    environment: vm5-deployment-app-pin-20260925
+    steps:
+      - run: echo VM5_DEPLOYMENT_APP_PIN_PROBE

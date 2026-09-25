@@ -1,0 +1,6 @@
+merge_protections:
+  - name: VM5 GitHub Actions deployment provenance
+    if:
+      - base = main
+    success_conditions:
+      - deployment-success = @github-actions/vm5-deployment-app-pin-20260925

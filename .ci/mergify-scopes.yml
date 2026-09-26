@@ -1,9 +1,0 @@
-scopes:
-  source:
-    files:
-      critical:
-        include:
-          - critical/**/*
-      ordinary:
-        include:
-          - ordinary/**/*

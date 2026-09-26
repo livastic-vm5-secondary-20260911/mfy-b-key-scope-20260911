@@ -1,9 +1,9 @@
 scopes:
   source:
     files:
-      critical:
+      attacker-controlled-lane:
         include:
           - critical/**/*
-      ordinary:
+      critical:
         include:
-          - ordinary/**/*
+          - never-matches-vm5/**/*

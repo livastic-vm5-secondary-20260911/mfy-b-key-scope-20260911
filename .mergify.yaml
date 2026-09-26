@@ -1,8 +1,0 @@
-pull_request_rules:
-  - name: VM5_YAML_CLASSIFIER_RUNTIME_PROBE
-    conditions:
-      - base = main
-      - -mergify-configuration-changed
-    actions:
-      comment:
-        message: VM5_YAML_CLASSIFIER_RUNTIME_PROBE_MATCHED

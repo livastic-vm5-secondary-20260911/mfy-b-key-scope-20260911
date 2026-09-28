@@ -1,0 +1,12 @@
+queue_rules:
+  - name: vm5-deploy-newgen-nostatus-mq-20260929
+    queue_conditions:
+      - deployment-success = vm5-deploy-newgen-nostatus-mq-20260929
+    merge_conditions:
+      - check-success = vm5-deploy-newgen-nostatus-never-20260929
+    merge_method: merge
+    batch_size: 1
+    max_checks_retries: 0
+
+merge_queue:
+  max_parallel_checks: 1

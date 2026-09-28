@@ -5,5 +5,5 @@ queue_rules:
       - check-success = vm5-acr-never-20260929
     batch_size: 2
     batch_max_wait_time: 0
-    merge_method: fast-forward
+    merge_method: rebase
 pull_request_rules: []

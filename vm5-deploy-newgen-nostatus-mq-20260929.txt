@@ -1,0 +1,1 @@
+vm5 deployment new-generation zero-status MQ runtime fixture

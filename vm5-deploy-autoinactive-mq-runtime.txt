@@ -1,0 +1,1 @@
+VM5 auto-inactive MQ runtime marker

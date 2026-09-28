@@ -1,0 +1,45 @@
+name: VM5 Qualified Deployment Inactive Probe
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: create-success or mark-inactive
+        required: true
+      sha:
+        description: deployment SHA
+        required: false
+      environment:
+        description: deployment environment
+        required: false
+      deployment_id:
+        description: existing deployment id
+        required: false
+permissions:
+  contents: read
+  deployments: write
+jobs:
+  mutate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create trusted success deployment
+        if: ${{ inputs.mode == 'create-success' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SHA: ${{ inputs.sha }}
+          DEPLOY_ENV: ${{ inputs.environment }}
+        run: |
+          set -euo pipefail
+          payload=$(jq -nc --arg ref "$SHA" --arg env "$DEPLOY_ENV" '{ref:$ref,environment:$env,auto_merge:false,required_contexts:[]}')
+          dep=$(curl -fsSL -X POST -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" "https://api.github.com/repos/$GITHUB_REPOSITORY/deployments" -d "$payload")
+          id=$(jq -r .id <<<"$dep")
+          test "$id" != null
+          curl -fsSL -X POST -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" "https://api.github.com/repos/$GITHUB_REPOSITORY/deployments/$id/statuses" -d '{"state":"success"}' >/dev/null
+          echo "deployment_id=$id"
+      - name: Mark trusted deployment inactive
+        if: ${{ inputs.mode == 'mark-inactive' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DEPLOYMENT_ID: ${{ inputs.deployment_id }}
+        run: |
+          set -euo pipefail
+          curl -fsSL -X POST -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" "https://api.github.com/repos/$GITHUB_REPOSITORY/deployments/$DEPLOYMENT_ID/statuses" -d '{"state":"inactive"}' >/dev/null

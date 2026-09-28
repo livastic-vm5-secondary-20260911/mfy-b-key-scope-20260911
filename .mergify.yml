@@ -1,0 +1,10 @@
+merge_protections_settings:
+  reporting_method: check-runs
+  post_comment: false
+merge_protections:
+  - name: vm5-auto-inactive-runtime
+    if:
+      - title = VM5_AUTO_INACTIVE_MP_RUNTIME_20260929
+    success_conditions:
+      - deployment-success = vm5-auto-inactive-mp-runtime-20260929
+pull_request_rules: []

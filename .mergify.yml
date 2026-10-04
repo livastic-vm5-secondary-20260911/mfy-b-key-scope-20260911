@@ -1,9 +1,9 @@
 pull_request_rules:
-  - name: VM5 merge sha timer stale generation
+  - name: VM5 merge sha timer stale generation H1
     conditions:
       - title = VM5_MERGE_SHA_TIMER_STALE_20261005
       - merge-commit-sha = 88701ace2716cd21b346c2c5e17597cf465b67a1
-      - current-datetime >= 2026-10-04T21:26:48Z
+      - current-datetime >= 2026-10-04T21:35:08Z
     actions:
       comment:
-        message: VM5_MERGE_SHA_TIMER_STALE_20261005
+        message: VM5_MERGE_SHA_TIMER_STALE_H1_20261005

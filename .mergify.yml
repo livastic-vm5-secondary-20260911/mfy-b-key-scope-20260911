@@ -1,9 +1,0 @@
-pull_request_rules:
-  - name: VM5 files timer stale generation H1
-    conditions:
-      - title = VM5_FILES_TIMER_STALE_20261005
-      - files ~= ^vm5-files-timer-h0-261005\.txt$
-      - current-datetime >= 2026-10-04T22:46:04Z
-    actions:
-      comment:
-        message: VM5_FILES_TIMER_STALE_H1_20261005

@@ -1,0 +1,9 @@
+pull_request_rules:
+  - name: VM5 conflict timer passive scheduler current
+    conditions:
+      - title = VM5_CONFLICT_TIMER_PASSIVE_20261005
+      - -conflict
+      - current-datetime >= 2026-10-05T00:32:27Z
+    actions:
+      comment:
+        message: VM5_CONFLICT_TIMER_PASSIVE_WAKE_20261005

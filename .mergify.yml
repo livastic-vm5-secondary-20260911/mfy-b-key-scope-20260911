@@ -4,7 +4,7 @@ pull_request_rules:
       - "base = main"
       - "title = VM5_REVIEW_DECISION_CODEOWNERS_BASEFF_TIMER_20261006"
       - "github-review-decision != REVIEW_REQUIRED"
-      - "current-datetime >= 2026-10-05T18:50:53Z"
+      - "current-datetime >= 2026-10-05T19:10:00Z"
     actions:
       comment:
         message: VM5_REVIEW_DECISION_CODEOWNERS_BASEFF_TIMER_COMMENT_20261006

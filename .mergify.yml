@@ -1,0 +1,10 @@
+pull_request_rules:
+  - name: VM5 review decision CODEOWNERS baseff passive timer R2
+    conditions:
+      - "base = main"
+      - "title = VM5_REVIEW_DECISION_CODEOWNERS_BASEFF_TIMER_R2_20261006"
+      - "github-review-decision != REVIEW_REQUIRED"
+      - "current-datetime >= 2026-10-05T19:42:00Z"
+    actions:
+      comment:
+        message: VM5_REVIEW_DECISION_CODEOWNERS_BASEFF_TIMER_COMMENT_R2_20261006

@@ -1,1 +1,9 @@
-pull_request_rules: []
+pull_request_rules:
+  - name: VM5 configchanged reverse stale false passive timer V3 merge
+    conditions:
+      - title = VM5_CONFIG_CHANGED_REVERSE_FALSE_V3_20261006
+      - -mergify-configuration-changed
+      - current-datetime >= 2026-10-06T08:50:00Z
+    actions:
+      merge:
+        method: squash
